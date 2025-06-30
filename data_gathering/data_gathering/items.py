@@ -8,5 +8,6 @@ import scrapy
 
 class DataGatheringItem(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    article_url = scrapy.Field()
+    title = scrapy.Field()
+    paragraph = scrapy.Field()
