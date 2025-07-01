@@ -14,7 +14,6 @@ NEWSPIDER_MODULE = "data_gathering.spiders"
 
 ADDONS = {}
 
-REDIRECT_ENABLED= False
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "data_gathering (+http://www.yourdomain.com)"
 
