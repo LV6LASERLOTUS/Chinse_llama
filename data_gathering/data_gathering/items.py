@@ -11,3 +11,4 @@ class DataGatheringItem(scrapy.Item):
     article_url = scrapy.Field()
     title = scrapy.Field()
     paragraph = scrapy.Field()
+    spam = scrapy.Field()

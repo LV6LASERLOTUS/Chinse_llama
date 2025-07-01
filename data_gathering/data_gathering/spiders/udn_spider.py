@@ -24,19 +24,18 @@ class UdnSpider(scrapy.Spider):
         for article in json_data["lists"]:
             full_url = BASE_URL + article["titleLink"]
             article_urls.append(full_url)
-        
+
         print(f"============ Retrieving Article {len(article_urls)}===============")
         
-        for index, url in enumerate(article_urls):
-            yield scrapy.Request(url, callback=self.parse_article,priority=len(article_urls)-index)
-    
+        for url in article_urls:
+            yield scrapy.Request(url, callback=self.parse_article)
+
     def parse_article(self, response):
         item = DataGatheringItem()
         item['article_url'] = response.url
         item['title'] = response.xpath('//*[@class="article-content__title"]/text()').get()
-        item['paragraph'] = response.xpath('//*[@class="article-content"]//p//text()').getall() 
+        item['paragraph'] = response.xpath('//div[@class="article-content__paragraph"]//p/text()').getall() 
+        item['spam'] = response.xpath('//div[@class="story-list__news"]//p/text()').getall()
         yield item
-
-
 
   

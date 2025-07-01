@@ -14,7 +14,7 @@ NEWSPIDER_MODULE = "data_gathering.spiders"
 
 ADDONS = {}
 
-
+REDIRECT_ENABLED= False
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "data_gathering (+http://www.yourdomain.com)"
 
@@ -64,9 +64,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "data_gathering.pipelines.DataGatheringPipeline": 300,
-#}
+ITEM_PIPELINES = {
+   "data_gathering.pipelines.DataGatheringPipeline": 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
